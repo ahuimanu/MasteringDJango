@@ -1,1 +1,3 @@
 # Mastering Django
+
+Walkthrough.
