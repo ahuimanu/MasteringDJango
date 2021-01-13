@@ -13,10 +13,26 @@ class VenueAdmin(admin.ModelAdmin):
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    fields = (("name", "venue"), "event_date", "description", "manager")
+    # fields = (("name", "venue"), "event_date", "description", "manager")
     list_display = ("name", "event_date", "venue")
     list_filter = ("event_date", "venue")
     ordering = ("-event_date",)
+    fieldsets = ( 
+        (
+            'Required Information', 
+            { 
+                'description': 'These fields are required for each event.',
+                'fields': (('name','venue'), 'event_date')
+            }
+        ),
+        (
+            'Optional Information',
+            {
+                'classes': ('collapse',),
+                'fields': ('description', 'manager')
+            }
+        )
+    )
 
 
 # admin.site.register(Event)
