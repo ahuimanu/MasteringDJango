@@ -4,7 +4,7 @@ class MyMiddleware:
 
     def __call__(self, request):
         # executed before the next middleware or view is called
-        request.META['CUSTOM_KEY'] = "Kilroy was here"
+        request.META["CUSTOM_KEY"] = "Kilroy was here"
 
         response = self.get_response(request)
 
